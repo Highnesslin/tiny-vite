@@ -1,0 +1,23 @@
+{
+  "name": "tiny-vite",
+  "version": "1.0.0",
+  "description": "just a test project",
+  "author": "林昊 <2212477518@qq.com>",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon vite.js"
+  },
+  "keywords": [
+    "vite"
+  ],
+  "dependencies": {
+    "vue": "^3.0.0-rc.1"
+  },
+  "devDependencies": {
+    "@vue/compiler-dom": "^3.0.0-rc.12",
+    "@vue/compiler-sfc": "^3.0.0-rc.12",
+    "nodemon": "^2.0.4",
+    "koa": "^2.13.0"
+  }
+}
