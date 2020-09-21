@@ -36,22 +36,23 @@ app.use((ctx) => {
 
   // 首页
   if (url === "/") {
-    let content = fs.readFileSync("./index.html", "utf-8");
-    content = content.replace(
-      "<script",
+    const content = fs.readFileSync("./index.html", "utf-8");
+
+    ctx.type = "text/html";
+    
+    ctx.body = content.replace(
+      /<\/head>/,
       `
-      <script>
-        // 注入一个socket客户端
-        // 后端的文件变了，通知前端去更新
-        window.process = {
-          env: {NODE_EV:'dev'}
-        }
-      </script>
-      <script
+    <script>
+      // 注入一个socket客户端
+      // node环境变量
+      window.process = {
+        env: {NODE_EV:'dev'}
+      }
+    </script>
+</head>
     `
     );
-    ctx.type = "text/html";
-    ctx.body = content;
   } else if (url.endsWith(".js")) {
     // js文件
     const p = path.resolve(__dirname, url.slice(1));
@@ -91,7 +92,6 @@ app.use((ctx) => {
       `;
     } else if (query.type === "template") {
       // 解析template内容
-      //
       const template = descriptor.template;
       const render = compilerDom.compile(template.content, { mode: "module" })
         .code;

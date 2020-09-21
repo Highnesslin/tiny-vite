@@ -6,7 +6,7 @@
   "license": "ISC",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon vite.js"
+    "dev": "nodemon server.js"
   },
   "keywords": [
     "vite"
