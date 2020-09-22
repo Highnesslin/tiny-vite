@@ -1,33 +1,10 @@
 const fs = require("fs");
 const path = require("path");
 const Koa = require("koa");
-// const router = require('koa-router')();
 const compilerSfc = require("@vue/compiler-sfc");
 const compilerDom = require("@vue/compiler-dom");
 
-// egg基于Koa，
 const app = new Koa();
-// app.use(router.routes());
-
-// router.get("/", ({request: { url, query }}) => {
-//   let content = fs.readFileSync("./index.html", "utf-8");
-//   content = content.replace(
-//     "<script",
-//     `
-//     <script>
-//       // 注入一个socket客户端
-//       // 后端的文件变了，通知前端去更新
-//       window.process = {
-//         env: {NODE_EV:'dev'}
-//       }
-//     </script>
-//     <script
-//   `
-//   );
-//   ctx.type = "text/html";
-//   ctx.body = content;
-// })
-// router.get("/")
 
 app.use((ctx) => {
   const {
